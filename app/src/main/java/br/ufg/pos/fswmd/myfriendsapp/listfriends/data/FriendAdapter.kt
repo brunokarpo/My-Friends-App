@@ -33,10 +33,12 @@ class FriendAdapter(
 
         var friendName = itemView!!.findViewById(R.id.list_name_friend_text_id) as TextView
         var friendNickname = itemView!!.findViewById(R.id.list_nickname_friend_text_id) as TextView
+        var friendTimeCreated = itemView!!.findViewById(R.id.list_friend_since_value_text_id) as TextView
 
         fun bindItem(friend: Friend) {
             friendName.text = friend.name
             friendNickname.text = friend.nickname
+            friendTimeCreated.text = friend.showHumanDate()
         }
 
     }
