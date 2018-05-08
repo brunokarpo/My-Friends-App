@@ -1,7 +1,8 @@
-package br.ufg.pos.fswmd.myfriendsapp
+package br.ufg.pos.fswmd.myfriendsapp.addfriend.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import br.ufg.pos.fswmd.myfriendsapp.R
 
 class MainActivity : AppCompatActivity() {
 
