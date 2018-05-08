@@ -42,7 +42,7 @@
                 android:text="@string/list_name_text" />
 
             <TextView
-                android:id="@+id/list_description_friend_text_id"
+                android:id="@+id/list_nickname_friend_text_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
