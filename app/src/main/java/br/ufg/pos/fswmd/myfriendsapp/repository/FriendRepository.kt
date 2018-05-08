@@ -6,4 +6,6 @@ interface FriendRepository {
 
     fun save(friend: Friend)
 
+    fun getAll(): ArrayList<Friend>
+
 }

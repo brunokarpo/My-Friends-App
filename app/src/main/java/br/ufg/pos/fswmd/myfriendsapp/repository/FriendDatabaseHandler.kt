@@ -35,4 +35,31 @@ class FriendDatabaseHandler(context: Context):
 
         db.close()
     }
+
+    override fun getAll(): ArrayList<Friend> {
+        var db = readableDatabase
+        val columns = arrayOf(KEY_ID, KEY_NAME, KEY_NICKNAME, KEY_TIME_CREATED)
+        val selection = "1=1"
+
+        var cursor = db.query(FRIEND_TABLE_NAME, columns, selection,
+                null, null, null, null)
+
+        var friends = mutableListOf<Friend>()
+
+        if (cursor.moveToFirst()) {
+
+            do {
+                var friend = Friend()
+                friend.id = cursor.getLong(cursor.getColumnIndex(KEY_ID))
+                friend.name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
+                friend.nickname = cursor.getString(cursor.getColumnIndex(KEY_NICKNAME))
+                friend.timeCreated = cursor.getLong(cursor.getColumnIndex(KEY_TIME_CREATED))
+                friends.add(friend)
+
+            } while( cursor.moveToNext() )
+
+        }
+
+        return ArrayList(friends)
+    }
 }
