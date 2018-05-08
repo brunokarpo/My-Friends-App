@@ -9,4 +9,9 @@
     <string name="save_friend_button">Save new friend</string>
     <string name="name_is_required">Name is required. Type the Name</string>
     <string name="friend_save_successfully">Friend save successfully</string>
+    <string name="list_name_text">Friend name</string>
+    <string name="list_photo_friend_description">Friend photo</string>
+    <string name="list_nickname_text">Friend\'s nickname</string>
+    <string name="list_friends_since_label">Friend since:</string>
+    <string name="date_template">01/01/2001</string>
 </resources>
