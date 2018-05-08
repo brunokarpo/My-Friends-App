@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Friends App</string>
+    <string name="name_label">Name</string>
+    <string name="type_name_hint">Type friend\'s name</string>
+    <string name="type_nickname_hint">Type friend\'s nickname (if he/she had)</string>
+    <string name="nickname_label">Nickname</string>
+    <string name="description_label">Description</string>
+    <string name="description_hint">Describe your friend</string>
+    <string name="save_friend_button">Save new friend</string>
 </resources>
