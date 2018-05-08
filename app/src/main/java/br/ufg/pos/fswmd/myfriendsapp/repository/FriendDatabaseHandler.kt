@@ -11,24 +11,25 @@ class FriendDatabaseHandler(context: Context):
         FriendRepository {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val create_friend_table = QUERY_CREATE_FRIENDS_TABLE
+        val createFriendTable = QUERY_CREATE_FRIENDS_TABLE
 
-        db?.execSQL(create_friend_table)
+        db?.execSQL(createFriendTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        val drop_table = QUERY_DROP_FRIEND_TABLE
+        val dropTable = QUERY_DROP_FRIEND_TABLE
 
-        db?.execSQL(drop_table)
+        db?.execSQL(dropTable)
     }
 
     override fun save(friend: Friend) {
         var db: SQLiteDatabase = writableDatabase
 
-        var values: ContentValues = ContentValues()
+        var values = ContentValues()
         values.put(KEY_NAME, friend.name)
         values.put(KEY_NICKNAME, friend.nickname)
         values.put(KEY_DESCRIPTION, friend.description)
+        values.put(KEY_TIME_CREATED, System.currentTimeMillis())
 
         db.insert(FRIEND_TABLE_NAME, null, values)
 
