@@ -1,5 +1,12 @@
 package br.ufg.pos.fswmd.myfriendsapp.addfriend.activity
 
-interface AddFriendView {}
+interface AddFriendView {
 
-interface AddFriendPresenter{}
+    fun showMessageNameRequired()
+    fun showMessageFriendSaveSuccessfully()
+}
+
+
+interface AddFriendPresenter{
+    fun saveFriend(name: String?, nickname: String?, description: String?)
+}

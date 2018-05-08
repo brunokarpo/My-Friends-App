@@ -4,5 +4,5 @@ class Friend(
         var name: String? = null,
         var nickname: String? = null,
         var description: String? = null,
-        var id: Long
+        var id: Long? = null
     )

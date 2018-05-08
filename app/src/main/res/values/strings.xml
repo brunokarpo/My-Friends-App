@@ -7,4 +7,6 @@
     <string name="description_label">Description</string>
     <string name="description_hint">Describe your friend</string>
     <string name="save_friend_button">Save new friend</string>
+    <string name="name_is_required">Name is required. Type the Name</string>
+    <string name="friend_save_successfully">Friend save successfully</string>
 </resources>
