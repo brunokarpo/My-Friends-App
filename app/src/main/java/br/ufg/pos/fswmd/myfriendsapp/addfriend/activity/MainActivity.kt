@@ -1,10 +1,12 @@
 package br.ufg.pos.fswmd.myfriendsapp.addfriend.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.ufg.pos.fswmd.myfriendsapp.R
 import br.ufg.pos.fswmd.myfriendsapp.addfriend.listener.SaveButtonListener
+import br.ufg.pos.fswmd.myfriendsapp.listfriends.activity.ListFriendsActivity
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendDatabaseHandler
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendRepository
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,5 +41,11 @@ class MainActivity : AppCompatActivity(), AddFriendView {
         name_edit_id.text.clear()
         nickname_edit_id.text.clear()
         description_edit_id.text.clear()
+    }
+
+    override fun goToListFriendsActivity() {
+        var intent = Intent(this, ListFriendsActivity::class.java)
+
+        startActivity(intent)
     }
 }

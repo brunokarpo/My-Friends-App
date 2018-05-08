@@ -22,6 +22,7 @@ class AddFriendPresenterImpl(
 
         view.showMessageFriendSaveSuccessfully()
         view.clearFields()
+        view.goToListFriendsActivity()
     }
 
 }
