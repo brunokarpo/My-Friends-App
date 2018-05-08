@@ -4,6 +4,7 @@ interface AddFriendView {
 
     fun showMessageNameRequired()
     fun showMessageFriendSaveSuccessfully()
+    fun clearFields()
 }
 
 

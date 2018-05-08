@@ -34,4 +34,10 @@ class MainActivity : AppCompatActivity(), AddFriendView {
     override fun showMessageFriendSaveSuccessfully() {
         Toast.makeText(this, R.string.friend_save_successfully, Toast.LENGTH_LONG).show()
     }
+
+    override fun clearFields() {
+        name_edit_id.text.clear()
+        nickname_edit_id.text.clear()
+        description_edit_id.text.clear()
+    }
 }

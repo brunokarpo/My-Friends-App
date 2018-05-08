@@ -21,6 +21,7 @@ class AddFriendPresenterImpl(
         repository.save(friend)
 
         view.showMessageFriendSaveSuccessfully()
+        view.clearFields()
     }
 
 }
