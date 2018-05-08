@@ -17,4 +17,6 @@
     <string name="add_new_friend_button">Add New Friend</string>
     <string name="photo_friend_description">Friend\'s photo</string>
     <string name="delete_friend_button_label">Delete this friend</string>
+    <string name="error_retrieve_friend_detail">An error occurred while trying to retrieve friend details</string>
+    <string name="friend_deleted_successfully">Friend deleted successfully</string>
 </resources>

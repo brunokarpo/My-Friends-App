@@ -62,4 +62,35 @@ class FriendDatabaseHandler(context: Context):
 
         return ArrayList(friends)
     }
+
+    override fun findById(id: Long): Friend? {
+        var db = readableDatabase
+        val columns = arrayOf(KEY_ID, KEY_NAME, KEY_NICKNAME, KEY_DESCRIPTION)
+        var selection = "$KEY_ID = ?"
+
+        var cursor = db.query(FRIEND_TABLE_NAME, columns, selection, arrayOf(id.toString()),
+                null, null, null)
+
+        var friend: Friend? = null
+
+        if (cursor.moveToFirst()) {
+            friend = Friend()
+            friend.id = cursor.getLong(cursor.getColumnIndex(KEY_ID))
+            friend.name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
+            friend.nickname = cursor.getString(cursor.getColumnIndex(KEY_NICKNAME))
+            friend.description = cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION))
+        }
+
+        return friend
+    }
+
+    override fun delete(friend: Friend) {
+        var db = writableDatabase
+
+        val whereClause = "$KEY_ID = ?"
+        val idArray = arrayOf(friend.id.toString())
+
+        db.delete(FRIEND_TABLE_NAME, whereClause, idArray)
+        db.close()
+    }
 }

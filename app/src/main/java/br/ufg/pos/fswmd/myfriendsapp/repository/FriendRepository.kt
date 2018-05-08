@@ -8,4 +8,8 @@ interface FriendRepository {
 
     fun getAll(): ArrayList<Friend>
 
+    fun findById(id: Long): Friend?
+
+    fun delete(friend: Friend)
+
 }
