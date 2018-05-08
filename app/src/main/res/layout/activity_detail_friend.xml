@@ -1,9 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".detailFriend.activity.DetailFriendActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/detail_friend_photo_image_view_id"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/photo_friend_description"
+        app:srcCompat="@drawable/image_default" />
+
+    <TextView
+        android:id="@+id/detail_friend_name_text_id"
+        style="@style/detail_friend_name_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_friend_photo_image_view_id"
+        android:layout_centerHorizontal="true"
+        android:text="@string/name_label" />
+
+    <TextView
+        android:id="@+id/detail_friend_nickname_text_id"
+        style="@style/detail_friend_nickname_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_friend_name_text_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/nickname_label" />
+
+    <TextView
+        android:id="@+id/detail_friend_description_text_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_friend_nickname_text_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/description_label"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/detail_friend_delete_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/detail_friend_description_text_id"
+        android:layout_centerHorizontal="true"
+        android:text="@string/delete_friend_button_label" />
+</RelativeLayout>

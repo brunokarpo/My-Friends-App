@@ -13,4 +13,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="detail_friend_name_style">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="detail_friend_nickname_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>
