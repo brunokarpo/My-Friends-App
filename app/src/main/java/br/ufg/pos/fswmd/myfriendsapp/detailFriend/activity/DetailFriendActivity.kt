@@ -8,6 +8,7 @@ import br.ufg.pos.fswmd.myfriendsapp.detailFriend.listeners.DeleteFriendButtonLi
 import br.ufg.pos.fswmd.myfriendsapp.model.Friend
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendDatabaseHandler
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendRepository
+import br.ufg.pos.fswmd.myfriendsapp.repository.KEY_ID
 import kotlinx.android.synthetic.main.activity_detail_friend.*
 
 class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
@@ -22,9 +23,10 @@ class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
 
         presenter = DetailFriendPresenterImpl(this, repository)
 
+        var data = intent.extras
+        var friendId = data.getLong(KEY_ID)
 
-        // TODO: retrieve friend ID from intent
-        presenter!!.retrieveFriendById(1L)
+        presenter!!.retrieveFriendById(friendId)
     }
 
     override fun fillFriend(friend: Friend) {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.ufg.pos.fswmd.myfriendsapp.R
+import br.ufg.pos.fswmd.myfriendsapp.listfriends.listeners.RetrieveFriendListener
 import br.ufg.pos.fswmd.myfriendsapp.model.Friend
 
 class FriendAdapter(
@@ -39,6 +40,10 @@ class FriendAdapter(
             friendName.text = friend.name
             friendNickname.text = friend.nickname
             friendTimeCreated.text = friend.showHumanDate()
+
+            itemView.setOnClickListener(
+                    RetrieveFriendListener(context, friend)
+            )
         }
 
     }
