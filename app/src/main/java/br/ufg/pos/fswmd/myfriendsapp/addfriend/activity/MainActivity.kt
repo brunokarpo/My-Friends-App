@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), AddFriendView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        friendRepository = FriendDatabaseHandler()
+        friendRepository = FriendDatabaseHandler(this)
 
         presenter = AddFriendPresenterImpl(this, friendRepository!!)
 
