@@ -1,9 +1,11 @@
 package br.ufg.pos.fswmd.myfriendsapp.listfriends.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import br.ufg.pos.fswmd.myfriendsapp.R
+import br.ufg.pos.fswmd.myfriendsapp.addfriend.activity.AddFriendActivity
 import br.ufg.pos.fswmd.myfriendsapp.listfriends.data.FriendAdapter
 import br.ufg.pos.fswmd.myfriendsapp.model.Friend
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendDatabaseHandler
@@ -32,5 +34,10 @@ class ListFriendsActivity : AppCompatActivity(), ListFriendsView {
         list_friends_recycler_view_id.adapter = adapter
 
         adapter.notifyDataSetChanged()
+    }
+
+    override fun goToAddNewFriendActivity() {
+        var intent = Intent(this, AddFriendActivity::class.java)
+        startActivity(intent)
     }
 }

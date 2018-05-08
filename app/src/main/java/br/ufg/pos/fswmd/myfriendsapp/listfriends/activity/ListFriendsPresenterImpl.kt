@@ -11,6 +11,11 @@ class ListFriendsPresenterImpl(
     override fun loadFriends() {
         val friendsArray: ArrayList<Friend> = repository.getAll()
 
+        if (friendsArray.isEmpty()) {
+            view.goToAddNewFriendActivity()
+            return
+        }
+
         view.fillFriendsList(friendsArray)
     }
 

@@ -11,7 +11,7 @@ import br.ufg.pos.fswmd.myfriendsapp.repository.FriendDatabaseHandler
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendRepository
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), AddFriendView {
+class AddFriendActivity : AppCompatActivity(), AddFriendView {
 
     private var presenter: AddFriendPresenter? = null
     private var friendRepository: FriendRepository? = null

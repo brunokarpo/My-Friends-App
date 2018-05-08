@@ -6,6 +6,8 @@ interface ListFriendsView {
 
     fun fillFriendsList(friendsArray: ArrayList<Friend>)
 
+    fun goToAddNewFriendActivity()
+
 }
 
 interface ListFriendsPresenter {
