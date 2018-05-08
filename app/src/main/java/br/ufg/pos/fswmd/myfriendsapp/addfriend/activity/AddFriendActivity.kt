@@ -47,5 +47,6 @@ class AddFriendActivity : AppCompatActivity(), AddFriendView {
         var intent = Intent(this, ListFriendsActivity::class.java)
 
         startActivity(intent)
+        finish()
     }
 }

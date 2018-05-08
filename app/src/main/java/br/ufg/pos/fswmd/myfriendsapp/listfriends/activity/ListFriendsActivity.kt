@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import br.ufg.pos.fswmd.myfriendsapp.R
 import br.ufg.pos.fswmd.myfriendsapp.addfriend.activity.AddFriendActivity
 import br.ufg.pos.fswmd.myfriendsapp.listfriends.data.FriendAdapter
@@ -39,5 +41,23 @@ class ListFriendsActivity : AppCompatActivity(), ListFriendsView {
     override fun goToAddNewFriendActivity() {
         var intent = Intent(this, AddFriendActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_list_friends, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item!!.itemId) {
+            R.id.add_new_friend_menu_button_id -> {
+                goToAddNewFriendActivity()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
     }
 }

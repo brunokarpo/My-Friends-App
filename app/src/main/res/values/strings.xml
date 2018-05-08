@@ -14,4 +14,5 @@
     <string name="list_nickname_text">Friend\'s nickname</string>
     <string name="list_friends_since_label">Friend since:</string>
     <string name="date_template">01/01/2001</string>
+    <string name="add_new_friend_button">Add New Friend</string>
 </resources>
