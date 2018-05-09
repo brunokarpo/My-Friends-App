@@ -43,10 +43,7 @@ class AddFriendActivity : AppCompatActivity(), AddFriendView {
         description_edit_id.text.clear()
     }
 
-    override fun goToListFriendsActivity() {
-        var intent = Intent(this, ListFriendsActivity::class.java)
-
-        startActivity(intent)
+    override fun finishActivity() {
         finish()
     }
 }
