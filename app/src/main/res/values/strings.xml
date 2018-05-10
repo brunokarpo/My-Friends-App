@@ -19,4 +19,6 @@
     <string name="delete_friend_button_label">Delete this friend</string>
     <string name="error_retrieve_friend_detail">An error occurred while trying to retrieve friend details</string>
     <string name="friend_deleted_successfully">Friend deleted successfully</string>
+    <string name="detail_friend_title">Friend\'s detail</string>
+    <string name="new_friend_title">New friend</string>
 </resources>

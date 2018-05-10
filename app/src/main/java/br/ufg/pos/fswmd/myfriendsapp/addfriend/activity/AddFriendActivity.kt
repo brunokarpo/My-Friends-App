@@ -1,12 +1,11 @@
 package br.ufg.pos.fswmd.myfriendsapp.addfriend.activity
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import android.widget.Toast
 import br.ufg.pos.fswmd.myfriendsapp.R
 import br.ufg.pos.fswmd.myfriendsapp.addfriend.listener.SaveButtonListener
-import br.ufg.pos.fswmd.myfriendsapp.listfriends.activity.ListFriendsActivity
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendDatabaseHandler
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendRepository
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,6 +26,23 @@ class AddFriendActivity : AppCompatActivity(), AddFriendView {
         save_button_id.setOnClickListener(
                 SaveButtonListener(presenter!!, name_edit_id, nickname_edit_id, description_edit_id)
         )
+
+        // enabling button back on action bar
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeButtonEnabled(true)
+        supportActionBar!!.setTitle(R.string.new_friend_title)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item!!.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else ->  {
+                return super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     override fun showMessageNameRequired() {

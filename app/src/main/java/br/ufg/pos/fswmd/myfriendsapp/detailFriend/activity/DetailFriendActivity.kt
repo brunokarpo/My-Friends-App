@@ -2,6 +2,7 @@ package br.ufg.pos.fswmd.myfriendsapp.detailFriend.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import br.ufg.pos.fswmd.myfriendsapp.R
 import br.ufg.pos.fswmd.myfriendsapp.detailFriend.listeners.DeleteFriendButtonListener
@@ -27,6 +28,24 @@ class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
         var friendId = data.getInt(KEY_ID)
 
         presenter!!.retrieveFriendById(friendId)
+
+        // enabling button back on action bar
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeButtonEnabled(true)
+        supportActionBar!!.setTitle(R.string.detail_friend_title)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item!!.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     override fun fillFriend(friend: Friend) {
