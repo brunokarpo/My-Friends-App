@@ -24,7 +24,10 @@ class ListFriendsActivity : AppCompatActivity(), ListFriendsView {
         setContentView(R.layout.activity_list_friends)
 
         presenter = ListFriendsPresenterImpl(this, repository)
+    }
 
+    override fun onResume() {
+        super.onResume()
         presenter!!.loadFriends()
     }
 
