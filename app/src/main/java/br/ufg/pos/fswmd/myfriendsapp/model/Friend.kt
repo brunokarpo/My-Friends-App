@@ -8,7 +8,7 @@ class Friend(
         var nickname: String? = null,
         var description: String? = null,
         var timeCreated: Long? = null,
-        var id: Long? = null
+        var id: Int? = null
     ) {
 
     fun showHumanDate(): String {

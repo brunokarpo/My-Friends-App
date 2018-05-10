@@ -16,7 +16,7 @@ interface DetailFriendView {
 
 interface DetailFriendPresenter {
 
-    fun retrieveFriendById(id: Long)
+    fun retrieveFriendById(id: Int)
 
     fun deleteFriend(friend: Friend)
 

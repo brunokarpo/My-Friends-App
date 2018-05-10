@@ -24,7 +24,7 @@ class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
         presenter = DetailFriendPresenterImpl(this, repository)
 
         var data = intent.extras
-        var friendId = data.getLong(KEY_ID)
+        var friendId = data.getInt(KEY_ID)
 
         presenter!!.retrieveFriendById(friendId)
     }

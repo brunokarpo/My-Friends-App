@@ -8,12 +8,13 @@ class DetailFriendPresenterImpl(
         private val repository: FriendRepository
     ): DetailFriendPresenter {
 
-    override fun retrieveFriendById(id: Long) {
+    override fun retrieveFriendById(id: Int) {
         var friend = repository.findById(id)
 
         if (friend == null) {
             view.showMessageErrorRetrieveFriend()
             view.finalizeActivity()
+            return
         }
 
         view.fillFriend(friend!!)
