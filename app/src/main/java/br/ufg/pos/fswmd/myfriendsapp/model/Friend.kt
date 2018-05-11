@@ -7,6 +7,7 @@ class Friend(
         var name: String? = null,
         var nickname: String? = null,
         var description: String? = null,
+        var photoUrl: String? = null,
         var timeCreated: Long? = null,
         var id: Int? = null
     ) {

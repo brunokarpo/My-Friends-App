@@ -17,17 +17,30 @@ class FriendDatabaseHandler(context: Context):
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        val createNewTableFriend = QUERY_CREATE_FRIEND_TABLE_NEW
-        db?.execSQL(createNewTableFriend)
+        migrateVersion2(oldVersion, db)
+        migrateVersion3(oldVersion, db)
+    }
 
-        val transferDatasBetweenTablesFriend = QUERY_TRANSFER_DATA_BETWEEN_TABLES_FRIEND
-        db?.execSQL(transferDatasBetweenTablesFriend)
+    private fun migrateVersion3(oldVersion: Int, db: SQLiteDatabase?) {
+        if (oldVersion <= DATABASE_VERSION_2) {
+            db?.execSQL(QUERY_ADD_PHOTO_URL_COLUMN_TABLE_FRIEND)
+        }
+    }
 
-        val dropTable = QUERY_DROP_FRIEND_TABLE
-        db?.execSQL(dropTable)
+    private fun migrateVersion2(oldVersion: Int, db: SQLiteDatabase?) {
+        if (oldVersion <= DATABASE_VERSION_1) {
+            val createNewTableFriend = QUERY_CREATE_FRIEND_TABLE_NEW
+            db?.execSQL(createNewTableFriend)
 
-        val renameTableNew = QUERY_RENAME_TABLE_FRIEND
-        db?.execSQL(renameTableNew)
+            val transferDatasBetweenTablesFriend = QUERY_TRANSFER_DATA_BETWEEN_TABLES_FRIEND
+            db?.execSQL(transferDatasBetweenTablesFriend)
+
+            val dropTable = QUERY_DROP_FRIEND_TABLE
+            db?.execSQL(dropTable)
+
+            val renameTableNew = QUERY_RENAME_TABLE_FRIEND
+            db?.execSQL(renameTableNew)
+        }
     }
 
     override fun save(friend: Friend) {
@@ -38,6 +51,7 @@ class FriendDatabaseHandler(context: Context):
         values.put(KEY_NICKNAME, friend.nickname)
         values.put(KEY_DESCRIPTION, friend.description)
         values.put(KEY_TIME_CREATED, System.currentTimeMillis())
+        values.put(KEY_PHOTO_URL, friend.photoUrl)
 
         db.insert(FRIEND_TABLE_NAME, null, values)
 
@@ -46,7 +60,7 @@ class FriendDatabaseHandler(context: Context):
 
     override fun getAll(): ArrayList<Friend> {
         var db = readableDatabase
-        val columns = arrayOf(KEY_ID, KEY_NAME, KEY_NICKNAME, KEY_TIME_CREATED)
+        val columns = arrayOf(KEY_ID, KEY_NAME, KEY_NICKNAME, KEY_TIME_CREATED, KEY_PHOTO_URL)
         val selection = "1=1"
 
         var cursor = db.query(FRIEND_TABLE_NAME, columns, selection,
@@ -62,6 +76,7 @@ class FriendDatabaseHandler(context: Context):
                 friend.name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
                 friend.nickname = cursor.getString(cursor.getColumnIndex(KEY_NICKNAME))
                 friend.timeCreated = cursor.getLong(cursor.getColumnIndex(KEY_TIME_CREATED))
+                friend.photoUrl = cursor.getString(cursor.getColumnIndex(KEY_PHOTO_URL))
                 friends.add(friend)
 
             } while( cursor.moveToNext() )
@@ -73,7 +88,7 @@ class FriendDatabaseHandler(context: Context):
 
     override fun findById(id: Int): Friend? {
         var db = readableDatabase
-        val columns = arrayOf(KEY_ID, KEY_NAME, KEY_NICKNAME, KEY_DESCRIPTION)
+        val columns = arrayOf(KEY_ID, KEY_NAME, KEY_NICKNAME, KEY_DESCRIPTION, KEY_PHOTO_URL)
         var selection = "$KEY_ID = ?"
 
         var cursor = db.query(FRIEND_TABLE_NAME, columns, selection, arrayOf(id.toString()),
@@ -87,6 +102,7 @@ class FriendDatabaseHandler(context: Context):
             friend.name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
             friend.nickname = cursor.getString(cursor.getColumnIndex(KEY_NICKNAME))
             friend.description = cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION))
+            friend.photoUrl = cursor.getString(cursor.getColumnIndex(KEY_PHOTO_URL))
         }
 
         return friend
