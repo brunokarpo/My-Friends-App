@@ -10,7 +10,9 @@ import br.ufg.pos.fswmd.myfriendsapp.model.Friend
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendDatabaseHandler
 import br.ufg.pos.fswmd.myfriendsapp.repository.FriendRepository
 import br.ufg.pos.fswmd.myfriendsapp.repository.KEY_ID
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_friend.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
 
@@ -52,6 +54,12 @@ class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
         detail_friend_name_text_id.text = friend.name
         detail_friend_nickname_text_id.text = friend.nickname
         detail_friend_description_text_id.text = friend.description
+
+        if (friend.photoUrl.isNullOrBlank().not()) {
+            Picasso.get()
+                    .load(friend.photoUrl)
+                    .into(friend_photo_image_view_id)
+        }
 
         detail_friend_delete_button_id.setOnClickListener(
                 DeleteFriendButtonListener(presenter!!, friend)
