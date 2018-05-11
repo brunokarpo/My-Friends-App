@@ -10,13 +10,13 @@ class AddFriendPresenterImpl(
     ): AddFriendPresenter {
 
 
-    override fun saveFriend(name: String?, nickname: String?, description: String?) {
+    override fun saveFriend(name: String?, nickname: String?, description: String?, photoUrl: String?) {
         if (TextUtils.isEmpty(name)) {
             view.showMessageNameRequired()
             return
         }
 
-        var friend = Friend(name, nickname, description)
+        var friend = Friend(name, nickname, description, photoUrl)
 
         repository.save(friend)
 

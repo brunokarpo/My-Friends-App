@@ -8,7 +8,8 @@ class SaveButtonListener(
         private val addFriendPresenter: AddFriendPresenter,
         private val nameEdit: EditText? = null,
         private val nickanameEdit: EditText? = null,
-        private val descriptionEdit: EditText? = null
+        private val descriptionEdit: EditText? = null,
+        private val photoUrl: String? = null
     ): View.OnClickListener {
 
     override fun onClick(v: View?) {
@@ -16,6 +17,6 @@ class SaveButtonListener(
         var nickname = nickanameEdit?.text.toString()
         var description = descriptionEdit?.text.toString()
 
-        addFriendPresenter.saveFriend(name, nickname, description)
+        addFriendPresenter.saveFriend(name, nickname, description, photoUrl)
     }
 }
