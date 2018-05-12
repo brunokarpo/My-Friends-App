@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Meus Amigos App</string>
+    <string name="name_label">Nome</string>
+    <string name="type_name_hint">Digite o nome do amigo</string>
+    <string name="type_nickname_hint">Digite o apelido do amigo (se ele/ela tiver)</string>
+    <string name="nickname_label">Apelido</string>
+    <string name="description_label">Descrição</string>
+    <string name="description_hint">Descreva seu novo amigo</string>
+    <string name="save_friend_button">Salvar novo amigo</string>
+    <string name="name_is_required">Nome é obrigatório. Digite o nome</string>
+    <string name="friend_save_successfully">Amigo salvo com sucesso</string>
+    <string name="list_name_text">Nome do amigo</string>
+    <string name="list_photo_friend_description">Foto do Amigo</string>
+    <string name="list_nickname_text">Apelido do Amigo</string>
+    <string name="list_friends_since_label">Amigo desde:</string>
+    <string name="date_template">01/01/2001</string>
+    <string name="add_new_friend_button">Adicionar Novo Amigo</string>
+    <string name="photo_friend_description">Foto do amigo</string>
+    <string name="delete_friend_button_label">Excluir este amigo</string>
+    <string name="error_retrieve_friend_detail">Ocorreu um erro ao tentar recuperar detalhes do amigo</string>
+    <string name="friend_deleted_successfully">Amigo excluído com sucesso</string>
+    <string name="detail_friend_title">Detalhes do amigo</string>
+    <string name="new_friend_title">Novo amigo</string>
+</resources>
