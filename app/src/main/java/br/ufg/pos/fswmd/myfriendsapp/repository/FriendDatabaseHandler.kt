@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import br.ufg.pos.fswmd.myfriendsapp.model.Friend
+import br.ufg.pos.fswmd.myfriendsapp.repository.migrations.MigrationProvider
 
 class FriendDatabaseHandler(context: Context):
         SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION),
@@ -17,30 +18,7 @@ class FriendDatabaseHandler(context: Context):
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        migrateVersion2(oldVersion, db)
-        migrateVersion3(oldVersion, db)
-    }
-
-    private fun migrateVersion3(oldVersion: Int, db: SQLiteDatabase?) {
-        if (oldVersion <= DATABASE_VERSION_2) {
-            db?.execSQL(QUERY_ADD_PHOTO_URL_COLUMN_TABLE_FRIEND)
-        }
-    }
-
-    private fun migrateVersion2(oldVersion: Int, db: SQLiteDatabase?) {
-        if (oldVersion <= DATABASE_VERSION_1) {
-            val createNewTableFriend = QUERY_CREATE_FRIEND_TABLE_NEW
-            db?.execSQL(createNewTableFriend)
-
-            val transferDatasBetweenTablesFriend = QUERY_TRANSFER_DATA_BETWEEN_TABLES_FRIEND
-            db?.execSQL(transferDatasBetweenTablesFriend)
-
-            val dropTable = QUERY_DROP_FRIEND_TABLE
-            db?.execSQL(dropTable)
-
-            val renameTableNew = QUERY_RENAME_TABLE_FRIEND
-            db?.execSQL(renameTableNew)
-        }
+        MigrationProvider.getMigration(db!!).migrate(oldVersion)
     }
 
     override fun save(friend: Friend) {
