@@ -8,14 +8,10 @@ import br.ufg.pos.fswmd.myfriendsapp.repository.QUERY_TRANSFER_DATA_BETWEEN_TABL
 
 class Version2(
         private val db: SQLiteDatabase
-    ): AbstractMigrateVersionChain() {
+    ): AbstractMigrateVersionChain(2) {
 
     override fun getNext(): MigrateVersion? {
         return Version3(db)
-    }
-
-    override fun getVersion(): Int {
-        return 2
     }
 
     override fun exec() {

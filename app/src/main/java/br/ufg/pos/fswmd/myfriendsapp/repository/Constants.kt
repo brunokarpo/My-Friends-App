@@ -1,8 +1,6 @@
 package br.ufg.pos.fswmd.myfriendsapp.repository
 
 const val DATABASE_NAME = "friends.db"
-const val DATABASE_VERSION_1 = 1
-const val DATABASE_VERSION_2 = 2
 const val DATABASE_VERSION = 3
 
 const val FRIEND_TABLE_NAME = "friend"

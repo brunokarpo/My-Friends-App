@@ -5,14 +5,10 @@ import br.ufg.pos.fswmd.myfriendsapp.repository.QUERY_ADD_PHOTO_URL_COLUMN_TABLE
 
 class Version3(
         private val db: SQLiteDatabase
-    ) : AbstractMigrateVersionChain() {
+    ) : AbstractMigrateVersionChain(3) {
 
     override fun getNext(): MigrateVersion? {
         return null
-    }
-
-    override fun getVersion(): Int {
-        return 3
     }
 
     override fun exec() {
