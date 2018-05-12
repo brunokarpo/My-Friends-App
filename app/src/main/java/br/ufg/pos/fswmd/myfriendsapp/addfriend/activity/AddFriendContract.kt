@@ -10,5 +10,5 @@ interface AddFriendView {
 
 
 interface AddFriendPresenter{
-    fun saveFriend(name: String?, nickname: String?, description: String?)
+    fun saveFriend(name: String?, nickname: String?, description: String?, photoUrl: String?)
 }
