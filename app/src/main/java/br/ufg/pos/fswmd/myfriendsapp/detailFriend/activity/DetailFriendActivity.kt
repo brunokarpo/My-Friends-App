@@ -58,7 +58,8 @@ class DetailFriendActivity : AppCompatActivity(), DetailFriendView {
         if (friend.photoUrl.isNullOrBlank().not()) {
             Picasso.get()
                     .load(friend.photoUrl)
-                    .into(friend_photo_image_view_id)
+                    .placeholder(R.drawable.image_default)
+                    .into(detail_friend_photo_image_view_id)
         }
 
         detail_friend_delete_button_id.setOnClickListener(

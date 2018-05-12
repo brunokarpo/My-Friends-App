@@ -33,6 +33,8 @@ class AddFriendActivity : AppCompatActivity(), AddFriendView {
 
     private var file: Uri? = null
 
+    private var saveButtonListener: SaveButtonListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,9 +42,10 @@ class AddFriendActivity : AppCompatActivity(), AddFriendView {
         friendRepository = FriendDatabaseHandler(this)
 
         presenter = AddFriendPresenterImpl(this, friendRepository!!)
+        saveButtonListener = SaveButtonListener(presenter!!, name_edit_id, nickname_edit_id, description_edit_id)
 
         save_button_id.setOnClickListener(
-                SaveButtonListener(presenter!!, name_edit_id, nickname_edit_id, description_edit_id)
+                saveButtonListener
         )
 
         // requesting permission to access camera and write in directory
@@ -76,6 +79,7 @@ class AddFriendActivity : AppCompatActivity(), AddFriendView {
         if (requestCode.equals(REQUEST_PICTURE_CODE)
                         .and(resultCode.equals(Activity.RESULT_OK))) {
             take_picture_button_id.setImageURI(file)
+            saveButtonListener!!.photoUrl = file.toString()
         }
 
     }

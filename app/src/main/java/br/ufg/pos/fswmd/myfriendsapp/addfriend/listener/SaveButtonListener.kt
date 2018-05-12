@@ -9,7 +9,7 @@ class SaveButtonListener(
         private val nameEdit: EditText? = null,
         private val nickanameEdit: EditText? = null,
         private val descriptionEdit: EditText? = null,
-        private val photoUrl: String? = null
+        var photoUrl: String? = null
     ): View.OnClickListener {
 
     override fun onClick(v: View?) {
