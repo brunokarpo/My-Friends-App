@@ -13,6 +13,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/image_default" />
 
     <ImageButton
