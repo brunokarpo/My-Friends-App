@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import br.ufg.pos.fswmd.myfriendsapp.model.Friend
+import br.ufg.pos.fswmd.myfriendsapp.repository.creations.CreationProvider
 import br.ufg.pos.fswmd.myfriendsapp.repository.migrations.MigrationProvider
 
 class FriendDatabaseHandler(context: Context):
@@ -12,9 +13,7 @@ class FriendDatabaseHandler(context: Context):
         FriendRepository {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val createFriendTable = QUERY_CREATE_FRIENDS_TABLE
-
-        db?.execSQL(createFriendTable)
+        CreationProvider.getCreator(db!!).create()
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

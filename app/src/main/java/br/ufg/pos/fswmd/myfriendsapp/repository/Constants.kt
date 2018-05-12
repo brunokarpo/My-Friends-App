@@ -10,12 +10,3 @@ const val KEY_NICKNAME = "nickname"
 const val KEY_DESCRIPTION = "description"
 const val KEY_TIME_CREATED = "created_date"
 const val KEY_PHOTO_URL = "photo_url"
-
-const val QUERY_CREATE_FRIENDS_TABLE = "CREATE TABLE $FRIEND_TABLE_NAME " +
-        "($KEY_ID INTEGER PRIMARY KEY, " +
-        "$KEY_NAME TEXT NOT NULL, " +
-        "$KEY_NICKNAME TEXT, " +
-        "$KEY_DESCRIPTION TEXT, " +
-        "$KEY_PHOTO_URL TEXT, " +
-        "$KEY_TIME_CREATED LONG NOT NULL" +
-        ")"
